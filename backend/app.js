@@ -20,7 +20,22 @@ app.use(cors())
 // Stop server => Ctrl + C
 // Response
 app.get('/', (req, res) => {
-    res.send('Hello, express server!!');
+    res.send('Hello!!!!');
+})
+
+app.get('/profile', (req, res) => {
+    res.send("My name is Yohei.");
+})
+
+app.get('/api/weather/:id', (req, res) => {
+    //TODO: DB search
+    var weather = {
+        place: '横浜市旭区',
+        weather: 'fine',
+        max_temperature: 27,
+        min_temperature: 16,
+    }
+    res.json(weather);
 })
 
 // Webサーバを待機（listen）
