@@ -17,6 +17,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
 app.use(cors())
 
+// Stop server => Ctrl + C
+// Response
+app.get('/', (req, res) => {
+    res.send('Hello, express server!!');
+})
+
 // Webサーバを待機（listen）
 app.listen(PORT, HOST, () => {
     console.log(`Server listen... http://${HOST}:${PORT}`)
