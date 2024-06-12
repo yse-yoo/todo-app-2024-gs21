@@ -9,25 +9,32 @@ function TodoList() {
     const addHandler = (e) => {
         // console.log("click!!!!")
         console.log(newTodo)
+
+        setTodos([...todos, newTodo])
     }
 
     // textbox の値が変わったときに処理
     const changeHandler = (e) => {
         // console.log("change!!!!")
+        //console.log(e.target.value)
         setNewTodo(e.target.value)
     }
 
     return (
         <div>
             <h2>Todo List</h2>
-            <input 
-                type="text" 
-                placeholder="Add a new todo." 
+            <input
+                type="text"
+                placeholder="Add a new todo."
                 onChange={changeHandler}
                 value={newTodo}
             />
-
             <button onClick={addHandler}>Add</button>
+
+            <div>
+                <ul>
+                </ul>
+            </div>
         </div>
     )
 }
