@@ -5,11 +5,15 @@ function TodoList() {
     const [todos, setTodos] = useState([]);
     const [newTodo, setNewTodo] = useState('');
 
+    const addHandler = (e) => {
+
+    }
+
     return (
         <div>
             <h2>Todo List</h2>
             <input type="text" placeholder="Add a new todo." />
-            <button>Add</button>
+            <button onClick={addHandler}>Add</button>
         </div>
     )
 }
