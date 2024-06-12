@@ -2,7 +2,11 @@ import React from 'react'
 
 function TodoList() {
   return (
-    <div>TodoList</div>
+    <div>
+        <h2>Todo List</h2>
+        <input type="text" placeholder="Add a new todo." />
+        <button>Add</button>
+    </div>
   )
 }
 
