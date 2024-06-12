@@ -1,9 +1,22 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 function TodoList() {
     // use state
     const [todos, setTodos] = useState([]);
     const [newTodo, setNewTodo] = useState('');
+
+    useEffect(() => {
+        console.log('fetch data!!!')
+        fetchTodos();
+    }, [])
+    
+
+    // Backend からデータを取得する
+    const fetchTodos = async () => {
+        //TODO: Backendにリクエスト
+        var data = ['Apple', 'Grape', 'Orange'];
+        setTodos(data);
+    }
 
     // button を clickした時の処理
     const addHandler = (e) => {
@@ -12,7 +25,9 @@ function TodoList() {
         // もし newTodoの文字が empty だったら終了
         if (newTodo == "") return;
 
+        // todos に newTodo を追加
         setTodos([...todos, newTodo])
+        // newTodoをemptyにする。
         setNewTodo('')
     }
 
@@ -37,8 +52,8 @@ function TodoList() {
             <div>
                 <ul>
                     {
-                        todos.map(todo => (
-                            <li>{todo}</li>
+                        todos.map((todo, index) => (
+                            <li key={index}>{todo}</li>
                         ))
                     }
                 </ul>
