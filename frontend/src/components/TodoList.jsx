@@ -33,6 +33,11 @@ function TodoList() {
 
             <div>
                 <ul>
+                    {
+                        todos.map(todo => (
+                            <li>{todo}</li>
+                        ))
+                    }
                 </ul>
             </div>
         </div>
