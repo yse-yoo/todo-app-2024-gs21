@@ -9,8 +9,11 @@ function TodoList() {
     const addHandler = (e) => {
         // console.log("click!!!!")
         console.log(newTodo)
+        // もし newTodoの文字が empty だったら終了
+        if (newTodo == "") return;
 
         setTodos([...todos, newTodo])
+        setNewTodo('')
     }
 
     // textbox の値が変わったときに処理
