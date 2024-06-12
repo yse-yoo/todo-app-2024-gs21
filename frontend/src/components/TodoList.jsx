@@ -6,7 +6,7 @@ function TodoList() {
     const [newTodo, setNewTodo] = useState('');
 
     const addHandler = (e) => {
-
+        console.log("Click!!!")
     }
 
     return (
