@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router();
 
+// get todos
 router.get('/todo/get', (req, res) => {
     //TODO: データーベースからtodosのデータを取得
 
@@ -24,11 +25,24 @@ router.get('/todo/get', (req, res) => {
     res.json(todos) 
 })
 
+// fetch todo
 router.get('/todo/fetch/:id', (req, res) => {
     // TODO:データベースから idで検索して、todoデータを取得
 
     const { id } = req.params;
     res.json({id});
+})
+
+// add todo(POSTリクエスト)
+router.post('/todo/add', (req, res) => {
+    // TODO: データベースにデータを保存
+    
+    const data = req.body;
+    const todo = { 
+        title: data.title, 
+        comleted: false
+    }
+    res.json(todo);
 })
 
 module.exports = router
