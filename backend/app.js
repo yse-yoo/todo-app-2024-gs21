@@ -17,6 +17,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
 app.use(cors())
 
+// routes/todoRoute.jsを読み込む
+const todoRoutes = require('./routes/todoRoute')
+app.use('/api', todoRoutes)
+
 // Stop server => Ctrl + C
 // Response
 app.get('/', (req, res) => {
