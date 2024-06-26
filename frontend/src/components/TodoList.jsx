@@ -32,9 +32,7 @@ function TodoList() {
         const data = { title: newTodo }
         const res = await axios.post(uri, data);
         console.log(res.data)
-        // todos に newTodo を追加
         setTodos([...todos, res.data])
-        // newTodoをemptyにする。
         setNewTodo('')
     }
 
