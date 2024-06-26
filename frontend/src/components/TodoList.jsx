@@ -24,14 +24,16 @@ function TodoList() {
     }
 
     // button を clickした時の処理
-    const addHandler = (e) => {
-        // console.log("click!!!!")
+    const addHandler = async (e) => {
         console.log(newTodo)
-        // もし newTodoの文字が empty だったら終了
         if (newTodo == "") return;
 
+        const uri = 'http://localhost:3001/api/todo/add';
+        const data = { title: newTodo }
+        const res = await axios.post(uri, data);
+        console.log(res.data)
         // todos に newTodo を追加
-        setTodos([...todos, newTodo])
+        setTodos([...todos, res.data])
         // newTodoをemptyにする。
         setNewTodo('')
     }

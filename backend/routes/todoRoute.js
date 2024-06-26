@@ -21,6 +21,11 @@ router.get('/todo/get', (req, res) => {
             title: "銀行に行く",
             completed: false,
         },
+        { 
+            id: 4,
+            title: "就職活動",
+            completed: false,
+        },
     ]
     res.json(todos) 
 })
@@ -40,6 +45,7 @@ router.post('/todo/add', (req, res) => {
     const data = req.body;
     console.log(data)
     const todo = { 
+        id: 1,
         title: data.title, 
         comleted: false
     }
