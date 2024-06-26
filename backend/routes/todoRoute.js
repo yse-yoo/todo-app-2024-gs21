@@ -36,8 +36,9 @@ router.get('/todo/fetch/:id', (req, res) => {
 // add todo(POSTリクエスト)
 router.post('/todo/add', (req, res) => {
     // TODO: データベースにデータを保存
-    
+
     const data = req.body;
+    console.log(data)
     const todo = { 
         title: data.title, 
         comleted: false
