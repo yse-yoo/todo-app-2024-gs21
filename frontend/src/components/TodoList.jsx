@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
+import axios from 'axios';
+
 function TodoList() {
     // use state
     const [todos, setTodos] = useState([]);
@@ -14,8 +16,11 @@ function TodoList() {
     // Backend からデータを取得する
     const fetchTodos = async () => {
         //TODO: Backendにリクエスト
-        var data = ['Apple', 'Grape', 'Orange'];
-        setTodos(data);
+        // var data = ['Apple', 'Grape', 'Orange'];
+        const uri = 'http://localhost:3001/api/todo/get';
+        const res = await axios.get(uri);
+        console.log(res.data)
+        setTodos(res.data);
     }
 
     // button を clickした時の処理
@@ -53,7 +58,7 @@ function TodoList() {
                 <ul>
                     {
                         todos.map((todo, index) => (
-                            <li key={index}>{todo}</li>
+                            <li key={index}>{todo.title}</li>
                         ))
                     }
                 </ul>
